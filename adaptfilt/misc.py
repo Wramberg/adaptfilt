@@ -35,24 +35,6 @@ def mswe(w, v):
     To use this function with the adaptive filter functions set the optional
     parameter returnCoeffs to True. This will return a coefficient matrix w
     corresponding with the input-parameter w.
-
-    Minimal Working Example
-    -----------------------
-    >>> import numpy as np
-    >>> from nlms import nlms
-    >>>
-    >>> np.random.seed(1337)
-    >>> ulen = 2000
-    >>> coeff = np.concatenate(([4], np.zeros(10), [-11], np.zeros(7), [0.7]))
-    >>> u = np.random.randn(ulen)
-    >>> d = np.convolve(u, coeff)
-    >>>
-    >>> M = 20  # No. of taps
-    >>> step = 1  # Step size
-    >>> y, e, w = nlms(u, d, M, step, returnCoeffs=True)
-    >>> mswe(w, coeff)
-    array([  5.89276161e+00,   5.79121198e+00,   5.13903821e+00, ...,
-             4.59606482e-32,   4.59606482e-32,   4.22075548e-32])
     """
     # Ensure inputs are numpy arrays
     w = np.array(w)

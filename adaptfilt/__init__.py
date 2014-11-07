@@ -23,6 +23,9 @@ from misc import mswe
 
 
 def _rundoctests(verbose=False):
+    """
+    Executes doctests
+    """
     import doctest
     import lms as testmod1
     import nlms as testmod2
