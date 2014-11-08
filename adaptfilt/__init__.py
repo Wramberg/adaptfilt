@@ -18,6 +18,7 @@ except:
 # Import functions directly into adaptfilt namespace
 from lms import lms
 from nlms import nlms
+from nlmsru import nlmsru
 from ap import ap
 from misc import mswe
 
@@ -31,11 +32,14 @@ def _rundoctests(verbose=False):
     import nlms as testmod2
     import ap as testmod3
     import misc as testmod4
+    import nlmsru as testmod5
     lmsres = doctest.testmod(testmod1, verbose=verbose)
     nlmsres = doctest.testmod(testmod2, verbose=verbose)
     apres = doctest.testmod(testmod3, verbose=verbose)
     miscres = doctest.testmod(testmod4, verbose=verbose)
-    print ' LMS: ', lmsres
-    print 'NLMS: ', nlmsres
-    print '  AP: ', apres
-    print 'MISC: ', miscres
+    nlmsrures = doctest.testmod(testmod5, verbose=verbose)
+    print '   LMS: ', lmsres
+    print '  NLMS: ', nlmsres
+    print 'NLMSRU: ', nlmsrures
+    print '    AP: ', apres
+    print '  MISC: ', miscres
