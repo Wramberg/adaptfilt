@@ -139,20 +139,24 @@ def nlmsru(u, d, M, step, eps=0.001, leak=0, initCoeffs=None, N=None,
     w = initCoeffs  # Initial filter coeffs
     # Initiate the input power var which is recursively updated
     ru = np.dot(u[:M], u[:M])
+    # Need to add a zero to u that will never be used in order to update input
+    # power
+    u = np.concatenate((u, [0]))
     leakstep = (1 - step*leak)
     if returnCoeffs:
         W = np.zeros((N, M))  # Matrix to hold coeffs for each iteration
 
     # Perform filtering
-    for n in np.arange(N):
+    for n in xrange(N):
         x = np.flipud(u[n:n+M])  # Slice to get view of M latest datapoints
         y[n] = np.dot(x, w)
         e[n] = d[n+M-1] - y[n]
 
-        ru = u[n+M-1]**2 - u[n]**2 + ru
         normFactor = 1./(ru + eps)
         w = leakstep * w + step * normFactor * x * e[n]
         y[n] = np.dot(x, w)
+        ru = u[n+M]**2 + ru - u[n]**2  # Update input power for next iteration
+
         if returnCoeffs:
             W[n] = w
 

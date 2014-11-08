@@ -4,7 +4,7 @@ Adaptfilt
 Adaptive filtering module for Python. For more information please visit
 https://github.com/Wramberg/adaptfilt or https://pypi.python.org/pypi/adaptfilt
 """
-__version__ = 0.1
+__version__ = '0.1.1'
 __author__ = "Jesper Wramberg & Mathias Tausen"
 __license__ = "MIT"
 

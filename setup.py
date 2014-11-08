@@ -7,7 +7,7 @@ with io.open('README.rst', mode='r', encoding='utf-8') as desc_file:
 setup(
     name='adaptfilt',
     packages=['adaptfilt'],  # this must be the same as the name above
-    version='0.1',
+    version='0.1.1',
     description='Adaptive filtering module for Python',
     long_description=long_description,
     author='Jesper Wramberg & Mathias Tausen',
