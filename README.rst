@@ -415,6 +415,7 @@ The following examples illustrate the use of the adaptfilt module. Note that the
 
   plt.show()
 
+.. image:: examples/echocancel-input.png
 
 Release History
 ---------------

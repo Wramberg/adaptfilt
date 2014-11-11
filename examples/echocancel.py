@@ -1,5 +1,5 @@
 """
-Echo cancellation in white background noise with NLMS.
+Acoustic echo cancellation in white background noise with NLMS.
 
 Consider a scenario where two individuals, John and Emily, are talking over the
 Internet. John is using his loudspeakers, which means Emily can hear herself
@@ -20,7 +20,7 @@ to design this filter looks like this:
       u(n) ------->->------+----------->->-----------
                            |                        |
                   +-----------------+      +------------------+
-              +->-| Adaptive filter |      |   Emily's Room   |
+              +->-| Adaptive filter |      |    John's Room   |
               |   +-----------------+      +------------------+
               |            | -y(n)                  |
               |            |           d(n)         |
