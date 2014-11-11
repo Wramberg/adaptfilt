@@ -33,12 +33,12 @@ feeding the error signal back to the adaptive filter, it can minimize the error
 by approximating the impulse response (that is the FIR filter coefficients) of
 John's room. Note that so far John's speech signal v(n) has not been taken into
 account. If John speaks, the error should equal his speech, that is, e(n)
-should equal v(n). For this simply example, however, we assume John is quiet
+should equal v(n). For this simple example, however, we assume John is quiet
 and v(n) is equal to white Gaussian background noise with zero-mean.
 
 In the following example we keep the impulse response of John's room constant.
 This is not required, however, since the advantage of adaptive filters, is that
-they can be used to track changes the impulse response.
+they can be used to track changes in the impulse response.
 """
 
 import numpy as np

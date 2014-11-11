@@ -27,7 +27,7 @@ def nlms(u, d, M, step, eps=0.001, leak=0, initCoeffs=None, N=None,
     Optional Parameters
     -------------------
     eps : float
-        Regularization factor to avoid nummerical issues when power of input
+        Regularization factor to avoid numerical issues when power of input
         is close to zero. Defaults to 0.001. Must be non-negative.
     leak : float
         Leakage factor, must be equal to or greater than zero and smaller than
@@ -137,7 +137,7 @@ def nlms(u, d, M, step, eps=0.001, leak=0, initCoeffs=None, N=None,
         W = np.zeros((N, M))  # Matrix to hold coeffs for each iteration
 
     # Perform filtering
-    for n in np.arange(N):
+    for n in xrange(N):
         x = np.flipud(u[n:n+M])  # Slice to get view of M latest datapoints
         y[n] = np.dot(x, w)
         e[n] = d[n+M-1] - y[n]

@@ -7,7 +7,7 @@ with io.open('README.rst', mode='r', encoding='utf-8') as desc_file:
 setup(
     name='adaptfilt',
     packages=['adaptfilt'],  # this must be the same as the name above
-    version='0.1.1',
+    version='0.2',
     description='Adaptive filtering module for Python',
     long_description=long_description,
     author='Jesper Wramberg & Mathias Tausen',
@@ -15,10 +15,10 @@ setup(
     url='https://github.com/Wramberg/adaptfilt',  # use the URL to the github repo
     keywords=['adaptive filter', 'adaptive filtering', 'signal-processing', 'lms', 'apa', 'nlms', 'rls'],  # arbitrary keywords
     classifiers=[
-        'Development Status :: 1 - Planning',
+        'Development Status :: 4 - Beta',
         'Programming Language :: Python',
         'Intended Audience :: Education',
-        'Intended Audience :: Science/Research',
+        'Intended Audience :: Developers',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ],
     license='MIT',

@@ -28,7 +28,7 @@ def ap(u, d, M, step, K, eps=0.001, leak=0, initCoeffs=None, N=None,
     Optional Parameters
     -------------------
     eps : float
-        Regularization factor to avoid nummerical issues when power of input
+        Regularization factor to avoid numerical issues when power of input
         is close to zero. Defaults to 0.001. Must be non-negative.
     leak : float
         Leakage factor, must be equal to or greater than zero and smaller than
@@ -145,7 +145,7 @@ def ap(u, d, M, step, K, eps=0.001, leak=0, initCoeffs=None, N=None,
         W = np.zeros((N, M))  # Matrix to hold coeffs for each iteration
 
     # Perform filtering
-    for n in np.arange(N):
+    for n in xrange(N):
         # Generate U matrix and D vector with current data
         U = np.zeros((M, K))
         for k in np.arange(K):

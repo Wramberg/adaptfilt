@@ -6,7 +6,7 @@ def nlmsru(u, d, M, step, eps=0.001, leak=0, initCoeffs=None, N=None,
            returnCoeffs=False):
     """
     Perform normalized least-mean-squares (NLMS) adaptive filtering (with
-    recursive updates of input power) on u to minimize error given by e=d-y,
+    recursive updates of input energy) on u to minimize error given by e=d-y,
     where y is the output of the adaptive filter.
 
     Parameters

@@ -130,7 +130,7 @@ def lms(u, d, M, step, leak=0, initCoeffs=None, N=None, returnCoeffs=False):
         W = np.zeros((N, M))  # Matrix to hold coeffs for each iteration
 
     # Perform filtering
-    for n in np.arange(N):
+    for n in xrange(N):
         x = np.flipud(u[n:n+M])  # Slice to get view of M latest datapoints
         y[n] = np.dot(x, w)
         e[n] = d[n+M-1] - y[n]

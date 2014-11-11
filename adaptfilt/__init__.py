@@ -4,7 +4,7 @@ Adaptfilt
 Adaptive filtering module for Python. For more information please visit
 https://github.com/Wramberg/adaptfilt or https://pypi.python.org/pypi/adaptfilt
 """
-__version__ = '0.1.1'
+__version__ = '0.2'
 __author__ = "Jesper Wramberg & Mathias Tausen"
 __license__ = "MIT"
 
@@ -23,7 +23,7 @@ from ap import ap
 from misc import mswe
 
 
-def _rundoctests(verbose=False):
+def rundoctests(verbose=False):
     """
     Executes doctests
     """

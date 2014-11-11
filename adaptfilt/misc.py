@@ -6,7 +6,7 @@ import numpy as np
 
 def mswe(w, v):
     """
-    Calculate mean squared weigth error between estimated and true filter
+    Calculate mean squared weight error between estimated and true filter
     coefficients, in respect to iterations.
 
     Parameters
@@ -22,7 +22,7 @@ def mswe(w, v):
     Returns
     -------
     mswe : numpy.array
-        One-dimensional array containing the mean-squared weigth error for
+        One-dimensional array containing the mean-squared weight error for
         every iteration.
 
     Raises
