@@ -435,7 +435,6 @@ Release History
 0.2
 +++
 | Included NLMS filtering function with recursive updates of input energy.
-| Included AP filtering function with recursive updates of input energy.
 | Included acoustic echo cancellation example
 
 0.1
