@@ -20,6 +20,7 @@ from lms import lms
 from nlms import nlms
 from nlmsru import nlmsru
 from ap import ap
+from rls import rls
 from misc import mswe
 
 
