@@ -39,6 +39,19 @@ def checkStep(step):
         raise ValueError('Step size must non-negative')
 
 
+def checkForgettingFactor(ffactor):
+    if type(ffactor) is not float and type(ffactor) is not int:
+        raise TypeError('Forgetting factor must be type float (or integer)')
+    elif ffactor <= 0 or ffactor > 1:
+        raise ValueError('Forgetting factor must lie in the interval ]0;1]')
+
+
+def checkInverseCorrelationMatrix(P, M):
+    if P.shape[0] != M or P.shape[1] != M:
+        err = 'Initial inverse correlation matrix must have dimensions MxM'
+        raise ValueError(err)
+
+
 def checkLeakage(leak):
     if type(leak) is not float and type(leak) is not int:
         raise TypeError('Leakage must be type float (or integer)')
