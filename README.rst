@@ -362,10 +362,10 @@ Acoustic echo cancellation
 
   plt.show()
 
-.. image:: https://raw.githubusercontent.com/Wramberg/adaptfilt/v0.1.1/examples/echocancel-input.png
-.. image:: https://raw.githubusercontent.com/Wramberg/adaptfilt/v0.1.1/examples/echocancel-error.png
-.. image:: https://raw.githubusercontent.com/Wramberg/adaptfilt/v0.1.1/examples/echocancel-mswe.png
-.. image:: https://raw.githubusercontent.com/Wramberg/adaptfilt/v0.1.1/examples/echocancel-coeffs.png
+.. image:: https://raw.githubusercontent.com/Wramberg/adaptfilt/master/examples/echocancel-input.png
+.. image:: https://raw.githubusercontent.com/Wramberg/adaptfilt/master/examples/echocancel-error.png
+.. image:: https://raw.githubusercontent.com/Wramberg/adaptfilt/master/examples/echocancel-mswe.png
+.. image:: https://raw.githubusercontent.com/Wramberg/adaptfilt/master/examples/echocancel-coeffs.png
 
 
 Convergence comparison
@@ -428,7 +428,7 @@ Convergence comparison
    plt.ylabel('Mean-squared weight error')
    plt.show()
 
-.. image:: https://raw.githubusercontent.com/Wramberg/adaptfilt/v0.1.1/examples/convergence-result.png
+.. image:: https://raw.githubusercontent.com/Wramberg/adaptfilt/master/examples/convergence-result.png
 
 Release History
 ---------------
