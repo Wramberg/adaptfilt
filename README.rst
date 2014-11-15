@@ -10,7 +10,7 @@ Adaptfilt is an adaptive filtering module for Python. It includes simple, proced
 The algorithms are implemented using Numpy for computational efficiency. Further optimization have also been done, but this is very limited and only on the most computationally intensive parts of the source code. Future implementation of the following algorithms is currently planned:
 
 * **Recursive least squares (RLS)**
-* **Steepest descent (SD)** (technically not an adaptive filter but included since it is closely related)
+* **Steepest descent (SD)**
 
 | **Authors**: Jesper Wramberg & Mathias Tausen
 | **Version**: 0.2
