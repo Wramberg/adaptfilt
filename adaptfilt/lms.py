@@ -121,13 +121,20 @@ def lms(u, d, M, step, leak=0, initCoeffs=None, N=None, returnCoeffs=False):
     else:
         _pchk.checkInitCoeffs(initCoeffs, M)
 
+    # Get datatype to decide if we should use complex filter
+    if np.iscomplexobj(d) or np.iscomplexobj(u):
+        dtype = np.complex
+    else:
+        dtype = np.double
+
     # Initialization
-    y = np.zeros(N)  # Filter output
-    e = np.zeros(N)  # Error signal
+    y = np.zeros(N, dtype=dtype)  # Filter output
+    e = np.zeros(N, dtype=dtype)  # Error signal
     w = initCoeffs  # Initial filter coeffs
     leakstep = (1 - step*leak)
     if returnCoeffs:
-        W = np.zeros((N, M))  # Matrix to hold coeffs for each iteration
+        # Matrix to hold coeffs for each iteration
+        W = np.zeros((N, M), dtype=dtype)
 
     # Perform filtering
     for n in xrange(N):

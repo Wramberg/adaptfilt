@@ -4,7 +4,7 @@ Adaptfilt
 Adaptive filtering module for Python. For more information please visit
 https://github.com/Wramberg/adaptfilt or https://pypi.python.org/pypi/adaptfilt
 """
-__version__ = '0.2'
+__version__ = '0.3'
 __author__ = "Jesper Wramberg & Mathias Tausen"
 __license__ = "MIT"
 
@@ -24,7 +24,7 @@ from rls import rls
 from misc import mswe
 
 
-def rundoctests(verbose=False):
+def __rundoctests__(verbose=False):
     """
     Executes doctests
     """
@@ -39,8 +39,13 @@ def rundoctests(verbose=False):
     apres = doctest.testmod(testmod3, verbose=verbose)
     miscres = doctest.testmod(testmod4, verbose=verbose)
     nlmsrures = doctest.testmod(testmod5, verbose=verbose)
-    print '   LMS: ', lmsres
-    print '  NLMS: ', nlmsres
-    print 'NLMSRU: ', nlmsrures
-    print '    AP: ', apres
-    print '  MISC: ', miscres
+    print '   LMS: %i passed and %i failed' % \
+        (lmsres.attempted-lmsres.failed, lmsres.failed)
+    print '  NLMS: %i passed and %i failed' % \
+        (nlmsres.attempted-nlmsres.failed, nlmsres.failed)
+    print 'NLMSRU: %i passed and %i failed' % \
+        (nlmsrures.attempted-nlmsrures.failed, nlmsrures.failed)
+    print '    AP: %i passed and %i failed' % \
+        (apres.attempted-apres.failed, apres.failed)
+    print '  MISC: %i passed and %i failed' % \
+        (miscres.attempted-miscres.failed, miscres.failed)

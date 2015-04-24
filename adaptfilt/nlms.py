@@ -128,13 +128,21 @@ def nlms(u, d, M, step, eps=0.001, leak=0, initCoeffs=None, N=None,
     else:
         _pchk.checkInitCoeffs(initCoeffs, M)
 
+    # Get datatype to decide if we should use complex filter
+    if np.iscomplexobj(d) or np.iscomplexobj(u):
+        dtype = np.complex
+    else:
+        dtype = np.double
+
     # Initialization
-    y = np.zeros(N)  # Filter output
-    e = np.zeros(N)  # Error signal
+    y = np.zeros(N, dtype=dtype)  # Filter output
+    e = np.zeros(N, dtype=dtype)  # Error signal
+    if returnCoeffs:
+        # Matrix to hold coeffs for each iteration
+        W = np.zeros((N, M), dtype=dtype)
+
     w = initCoeffs  # Initial filter coeffs
     leakstep = (1 - step*leak)
-    if returnCoeffs:
-        W = np.zeros((N, M))  # Matrix to hold coeffs for each iteration
 
     # Perform filtering
     for n in xrange(N):

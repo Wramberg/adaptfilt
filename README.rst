@@ -6,14 +6,12 @@ Adaptfilt is an adaptive filtering module for Python. It includes simple, proced
 * **Least-mean-squares (LMS)** - including traditional and leaky filtering
 * **Normalized least-mean-squares (NLMS)** - including traditional and leaky filtering with recursively updated input energy
 * **Affine projection (AP)** - including traditional and leaky filtering
-
-The algorithms are implemented using Numpy for computational efficiency. Further optimization have also been done, but this is very limited and only on the most computationally intensive parts of the source code. Future implementation of the following algorithms is currently planned:
-
 * **Recursive least squares (RLS)**
-* **Steepest descent (SD)**
+
+The algorithms are implemented using Numpy for computational efficiency. Further optimization have also been done, but this is very limited and only on the most computationally intensive parts of the source code.
 
 | **Authors**: Jesper Wramberg & Mathias Tausen
-| **Version**: 0.2
+| **Version**: 0.3
 | **PyPI**: https://pypi.python.org/pypi/adaptfilt
 | **GitHub**: https://github.com/Wramberg/adaptfilt
 | **License**: MIT
@@ -25,7 +23,7 @@ To install from PyPI using pip simply run::
    sudo pip install adaptfilt
 
 Alternatively, the module can also be downloaded at https://pypi.python.org/pypi/adaptfilt or 
-https://github.com/Wramberg/adaptfilt. The latter is also used for issue tracking. Note that adaptfilt requires Numpy to be installed (tested using version 1.9.0).
+https://github.com/Wramberg/adaptfilt. The latter is also used for issue tracking. Note that adaptfilt requires Numpy to run (tested using version 1.9.0).
 
 Usage
 -----
@@ -33,7 +31,7 @@ Once installed, the module should be available for import by calling::
 
    import adaptfilt
 
-Following the reference sections, examples are provided to show the modules functionality.
+Following the reference sections, examples are provided to show the modules functionality. Please do not hesitate to star us on GitHub if you found the module useful.
 
 Function Reference
 ------------------
@@ -432,10 +430,15 @@ Convergence comparison
 
 Release History
 ---------------
+0.3
++++
+| Included RLS filtering function.
+| Added support for complex signals.
+
 0.2
 +++
 | Included NLMS filtering function with recursive updates of input energy.
-| Included acoustic echo cancellation example
+| Included acoustic echo cancellation example.
 
 0.1
 +++
