@@ -38,8 +38,8 @@ def rundoctests(verbose=False):
     apres = doctest.testmod(testmod3, verbose=verbose)
     miscres = doctest.testmod(testmod4, verbose=verbose)
     nlmsrures = doctest.testmod(testmod5, verbose=verbose)
-    print '   LMS: ', lmsres
-    print '  NLMS: ', nlmsres
-    print 'NLMSRU: ', nlmsrures
-    print '    AP: ', apres
-    print '  MISC: ', miscres
+    print ('   LMS: ', lmsres)
+    print ('  NLMS: ', nlmsres)
+    print ('NLMSRU: ', nlmsrures)
+    print ('    AP: ', apres)
+    print ('  MISC: ', miscres)
