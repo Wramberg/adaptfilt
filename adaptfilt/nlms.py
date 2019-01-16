@@ -1,5 +1,5 @@
 import numpy as np
-import _paramcheck as _pchk
+import adaptfilt._paramcheck as _pchk
 
 
 def nlms(u, d, M, step, eps=0.001, leak=0, initCoeffs=None, N=None,
@@ -69,6 +69,7 @@ def nlms(u, d, M, step, eps=0.001, leak=0, initCoeffs=None, N=None,
     Minimal Working Example
     -----------------------
     >>> import numpy as np
+    >>> import adaptfilt.nlms as nlms
     >>>
     >>> np.random.seed(1337)
     >>> ulen = 2000
@@ -79,12 +80,13 @@ def nlms(u, d, M, step, eps=0.001, leak=0, initCoeffs=None, N=None,
     >>> M = 20  # No. of taps
     >>> step = 1  # Step size
     >>> y, e, w = nlms(u, d, M, step)
-    >>> print np.allclose(w, coeff)
+    >>> print(np.allclose(w, coeff))
     True
 
     Extended Example
     ----------------
     >>> import numpy as np
+    >>> import adaptfilt.nlms as nlms
     >>>
     >>> np.random.seed(1337)
     >>> N = 1000
@@ -107,6 +109,7 @@ def nlms(u, d, M, step, eps=0.001, leak=0, initCoeffs=None, N=None,
     >>> diff = np.diff(mswe)
     >>> (diff <= 1e-10).all()
     True
+
     """
     # Check epsilon
     _pchk.checkRegFactor(eps)
@@ -145,7 +148,7 @@ def nlms(u, d, M, step, eps=0.001, leak=0, initCoeffs=None, N=None,
     leakstep = (1 - step*leak)
 
     # Perform filtering
-    for n in xrange(N):
+    for n in range(N):
         x = np.flipud(u[n:n+M])  # Slice to get view of M latest datapoints
         y[n] = np.dot(x, w)
         e[n] = d[n+M-1] - y[n]

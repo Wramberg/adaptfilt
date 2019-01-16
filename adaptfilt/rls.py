@@ -1,5 +1,5 @@
 import numpy as np
-import _paramcheck as _pchk
+import adaptfilt._paramcheck as _pchk
 
 
 def rls(u, d, M, ffactor, initP=None, initCoeffs=None, N=None,
@@ -102,7 +102,7 @@ def rls(u, d, M, ffactor, initP=None, initCoeffs=None, N=None,
         W = np.zeros((N, M))  # Matrix to hold coeffs for each iteration
 
     # Perform filtering
-    for n in xrange(N):
+    for n in range(N):
         # Slice M latest data points
         x = np.flipud(u[n:n+M])
 
