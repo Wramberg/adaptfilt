@@ -1,5 +1,5 @@
 import numpy as np
-import _paramcheck as _pchk
+import adaptfilt._paramcheck as _pchk
 
 
 def lms(u, d, M, step, leak=0, initCoeffs=None, N=None, returnCoeffs=False):
@@ -64,6 +64,7 @@ def lms(u, d, M, step, leak=0, initCoeffs=None, N=None, returnCoeffs=False):
     Minimal Working Example
     -----------------------
     >>> import numpy as np
+    >>> import adaptfilt.lms as lms
     >>>
     >>> np.random.seed(1337)
     >>> ulen = 2000
@@ -74,12 +75,13 @@ def lms(u, d, M, step, leak=0, initCoeffs=None, N=None, returnCoeffs=False):
     >>> M = 20  # No. of taps
     >>> step = 0.03  # Step size
     >>> y, e, w = lms(u, d, M, step)
-    >>> print np.allclose(w, coeff)
+    >>> print(np.allclose(w, coeff))
     True
 
     Extended Example
     ----------------
     >>> import numpy as np
+    >>> import adaptfilt.lms as lms
     >>>
     >>> np.random.seed(1337)
     >>> N = 1000
@@ -102,6 +104,7 @@ def lms(u, d, M, step, leak=0, initCoeffs=None, N=None, returnCoeffs=False):
     >>> diff = np.diff(mswe)
     >>> (diff <= 1e-10).all()
     True
+
     """
     # Num taps check
     _pchk.checkNumTaps(M)
@@ -137,7 +140,7 @@ def lms(u, d, M, step, leak=0, initCoeffs=None, N=None, returnCoeffs=False):
         W = np.zeros((N, M), dtype=dtype)
 
     # Perform filtering
-    for n in xrange(N):
+    for n in range(N):
         x = np.flipud(u[n:n+M])  # Slice to get view of M latest datapoints
         y[n] = np.dot(x, w)
         e[n] = d[n+M-1] - y[n]

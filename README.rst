@@ -444,6 +444,7 @@ Release History
 +++
 | Included RLS filtering function.
 | Added support for complex signals.
+| Support Python 3
 
 0.2
 +++
