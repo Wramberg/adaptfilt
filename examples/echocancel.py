@@ -39,6 +39,17 @@ and v(n) is equal to white Gaussian background noise with zero-mean.
 In the following example we keep the impulse response of John's room constant.
 This is not required, however, since the advantage of adaptive filters, is that
 they can be used to track changes in the impulse response.
+
+A short speech sample is included in speech.npy, available on github or pypi in
+the examples folder. The sample is single-channel and is in floating-point
+format to keep the example simple. The original recording is sampled at 44.1
+kHz, and has been downsampled by a factor of 4. To listen to any of the audio
+signals of the example, they can be normalized and stored as wav files with
+scipy:
+
+    from scipy.io.wavfile import write
+    write("d.wav", 44100/4, d/np.max(d))
+
 """
 
 import numpy as np
