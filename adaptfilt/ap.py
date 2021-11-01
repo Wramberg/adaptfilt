@@ -1,5 +1,5 @@
 import numpy as np
-import _paramcheck as _pchk
+import adaptfilt._paramcheck as _pchk
 
 
 def ap(u, d, M, step, K, eps=0.001, leak=0, initCoeffs=None, N=None,
@@ -70,6 +70,7 @@ def ap(u, d, M, step, K, eps=0.001, leak=0, initCoeffs=None, N=None,
     Minimal Working Example
     -----------------------
     >>> import numpy as np
+    >>> import adaptfilt.ap as ap
     >>>
     >>> np.random.seed(1337)
     >>> ulen = 2000
@@ -81,12 +82,13 @@ def ap(u, d, M, step, K, eps=0.001, leak=0, initCoeffs=None, N=None,
     >>> step = 1  # Step size
     >>> K = 5  # Projection order
     >>> y, e, w = ap(u, d, M, step, K)
-    >>> print np.allclose(w, coeff)
+    >>> print(np.allclose(w, coeff))
     True
 
     Extended Example
     ----------------
     >>> import numpy as np
+    >>> import adaptfilt.ap as ap
     >>>
     >>> np.random.seed(1337)
     >>> N = 1000
@@ -110,6 +112,7 @@ def ap(u, d, M, step, K, eps=0.001, leak=0, initCoeffs=None, N=None,
     >>> diff = np.diff(mswe)
     >>> (diff <= 1e-10).all()
     True
+
     """
     # Check epsilon
     _pchk.checkRegFactor(eps)
@@ -133,19 +136,26 @@ def ap(u, d, M, step, K, eps=0.001, leak=0, initCoeffs=None, N=None,
     else:
         _pchk.checkInitCoeffs(initCoeffs, M)
 
+    # Get datatype to decide if we should use complex filter
+    if np.iscomplexobj(d) or np.iscomplexobj(u):
+        dtype = np.complex
+    else:
+        dtype = np.double
+
     # Initialization
-    y_out = np.zeros(N)  # Filter output
-    e_out = np.zeros(N)  # Error signal
+    y_out = np.zeros(N, dtype=dtype)  # Filter output
+    e_out = np.zeros(N, dtype=dtype)  # Error signal
     w = initCoeffs  # Initial filter coeffs
     I = np.identity(K)  # Init. identity matrix for faster loop matrix inv.
     epsI = eps * np.identity(K)  # Init. epsilon identiy matrix
     leakstep = (1 - step*leak)
 
     if returnCoeffs:
-        W = np.zeros((N, M))  # Matrix to hold coeffs for each iteration
+        # Matrix to hold coeffs for each iteration
+        W = np.zeros((N, M), dtype=dtype)
 
     # Perform filtering
-    for n in xrange(N):
+    for n in range(N):
         # Generate U matrix and D vector with current data
         U = np.zeros((M, K))
         for k in np.arange(K):
